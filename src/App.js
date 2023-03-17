@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex items-center justify-center border border-red-500 h-screen">
       Zing Mp3
     </div>
   );
