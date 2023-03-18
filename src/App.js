@@ -2,13 +2,15 @@ import { useState, useRef } from 'react';
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import TodoList from './Todo';
+import {useDispatch, useSelector} from 'react-redux';
 
 function App() {
-  
+  const {test} = useSelector(state=>state.app)
+  console.log(test)
   return (
     <div>
-      <TodoList/>
+      {/* <TodoList/> */}
+      app
     </div>
   );
 }
