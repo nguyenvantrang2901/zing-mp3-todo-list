@@ -2,7 +2,7 @@ import React from 'react'
 import icons from '../ultis/icons';
 import Search from './search';
 
-const {HiArrowNarrowLeft,HiArrowNarrowRight,BsSearch} = icons;
+const {HiArrowNarrowLeft,HiArrowNarrowRight} = icons;
 
 const Header = () => {
   return (
