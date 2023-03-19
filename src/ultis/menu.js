@@ -2,7 +2,9 @@ import icons from './icons';
 
 const {
     MdOutlineLibraryMusic,
-    AiOutlineCreditCard
+    TbChartDonut2,
+    MdOutlineFeed,
+    HiOutlineChartPie
 } = icons;
 
 export const menuSideBar = [
@@ -15,16 +17,16 @@ export const menuSideBar = [
         path:"",
         text : "Khám phá",
         end : true,
-        icons:<AiOutlineCreditCard size={24}/>
+        icons:<TbChartDonut2 size={24}/>
     },
     {
         path:"zing-chart",
         text : "#zingchat",
-        icons:<MdOutlineLibraryMusic size={24}/>
+        icons:<HiOutlineChartPie size={24}/>
     },
     {
         path:"follow",
         text : "Theo dõi",
-        icons:<AiOutlineCreditCard size={24}/>
+        icons:<MdOutlineFeed size={24}/>
     },
 ]
