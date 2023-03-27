@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getInfoSong = exports.getSong = void 0;
+exports.apiGetDetailPlaylist = exports.apiGetInfoSong = exports.apiGetSong = void 0;
 
 var _axios = _interopRequireDefault(require("../axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var getSong = function getSong(songId) {
+var apiGetSong = function apiGetSong(songId) {
   return new Promise(function _callee(resolve, reject) {
     var res;
     return regeneratorRuntime.async(function _callee$(_context) {
@@ -46,9 +46,9 @@ var getSong = function getSong(songId) {
   });
 };
 
-exports.getSong = getSong;
+exports.apiGetSong = apiGetSong;
 
-var getInfoSong = function getInfoSong(songId) {
+var apiGetInfoSong = function apiGetInfoSong(songId) {
   return new Promise(function _callee2(resolve, reject) {
     var res;
     return regeneratorRuntime.async(function _callee2$(_context2) {
@@ -85,4 +85,43 @@ var getInfoSong = function getInfoSong(songId) {
   });
 };
 
-exports.getInfoSong = getInfoSong;
+exports.apiGetInfoSong = apiGetInfoSong;
+
+var apiGetDetailPlaylist = function apiGetDetailPlaylist(playlistId) {
+  return new Promise(function _callee3(resolve, reject) {
+    var res;
+    return regeneratorRuntime.async(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return regeneratorRuntime.awrap((0, _axios["default"])({
+              url: "detailplaylist",
+              method: "get",
+              params: {
+                id: playlistId
+              }
+            }));
+
+          case 3:
+            res = _context3.sent;
+            resolve(res);
+            _context3.next = 10;
+            break;
+
+          case 7:
+            _context3.prev = 7;
+            _context3.t0 = _context3["catch"](0);
+            reject(_context3.t0);
+
+          case 10:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, null, null, [[0, 7]]);
+  });
+};
+
+exports.apiGetDetailPlaylist = apiGetDetailPlaylist;

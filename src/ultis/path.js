@@ -4,5 +4,7 @@ const path = {
     LOGIN : 'login',
     STAR : "/*",
     MY_MUSIC:"mymusic",
+    ALBUM__TITLE__PID:"album/:title/:playlistId",
+
 }
 export default path;

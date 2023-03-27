@@ -30,8 +30,8 @@ const Player = () => {
   useEffect(() => { 
     const fetchDetailSong = async()=>{
       const [res1, res2] = await Promise.all([
-        apis.getInfoSong(curSongId),
-        apis.getSong(curSongId)
+        apis.apiGetInfoSong(curSongId),
+        apis.apiGetSong(curSongId)
       ])
       if(res1.data.err === 0 ){
         setSongInfo(res1.data.data)
@@ -55,7 +55,7 @@ const Player = () => {
     <div className="bg-main-400 px-5 h-full flex">
 
       <div className='w-[30%] flex-auto flex items-center gap-3'>
-        <img src={songInfo?.thumbnail} alt="Image Song" className='w-16 h-16 object-cover rounded-md' />
+        <img src={songInfo?.thumbnail} alt="Images Song" className='w-16 h-16 object-cover rounded-md' />
         <div className='flex flex-col'>
           <span className='text-sm font-semibold text-gray-700'>
             {songInfo?.title}
