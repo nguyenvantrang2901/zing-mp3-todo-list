@@ -1,10 +1,13 @@
 import React, {useEffect} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getArrSlider } from '../ultis/helper';
+import * as actions from '../store/actions';
 
 const Slider = () => {
   const {banner} = useSelector(state=>state.app)
   // console.log(banner)
+  const dispatch = useDispatch()
+
   useEffect(()=>{
     const sliderElements = document.getElementsByClassName('slider-item')
     let min = 0;
@@ -29,28 +32,35 @@ const Slider = () => {
       // sliderElements[max].classList.add('animate-slide-right')
       list.forEach(item=>{
         if(item === max) {
-          sliderElements[item].classList.add('animate-slide-right','order-last', 'z-20')
+          sliderElements[item]?.classList?.add('animate-slide-right','order-last', 'z-20')
         }
         else if (item === min){
-          sliderElements[item].classList.add('animate-slide-left','order-last', 'z-10')
+          sliderElements[item]?.classList?.add('animate-slide-left','order-last', 'z-10')
         }
         else {
-          sliderElements[item].classList.add('animate-slide-left1','order-last', 'z-10')
+          sliderElements[item]?.classList?.add('animate-slide-left1','order-last', 'z-10')
         }
       })
 
       min = (min === sliderElements.length - 1) ? 0 : min+1
       max = (max === sliderElements.length - 1) ? 0 : max+1
-    },2000)
+    },3000)
     return()=>{
       intervalId && clearInterval(intervalId)
     }
-    console.log(sliderElements)
+    // console.log(sliderElements)
   },[])
+  const hanldeClickBanner = (item) => {
+    // console.log(item)
+    if(item?.type === 1 ){
+      dispatch(actions.setCurSongId(item.encodeId))
+    }
+  }
   return (
     <div className='flex gap-8 w-full overflow-hidden px-[59px] pt-8'>
       {banner?.map((item, index) => (
         <img
+          onClick={()=>hanldeClickBanner(item)}
           src={item.banner}
           key={item.encodeId}
           className={`slider-item flex-1 object-contain w-[30%] rounded-lg ${index <= 2 ? 'block' : 'hidden'}`}

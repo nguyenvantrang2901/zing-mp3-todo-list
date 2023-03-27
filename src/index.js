@@ -4,16 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import reducerConfig from './redux'; 
+import reduxConfig from './redux'; 
 import {BrowserRouter} from 'react-router-dom';
-const store = reducerConfig;
+import { PersistGate } from 'redux-persist/integration/react';
+
+const {store, persistor} = reduxConfig();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store()}>
-     <BrowserRouter>
-      <App/>
-     </BrowserRouter>
+    <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+        </PersistGate>
     </Provider>
 );
 

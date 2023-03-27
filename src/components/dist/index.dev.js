@@ -33,6 +33,12 @@ Object.defineProperty(exports, "Slider", {
     return _slider["default"];
   }
 });
+Object.defineProperty(exports, "Player", {
+  enumerable: true,
+  get: function get() {
+    return _player["default"];
+  }
+});
 
 var _sideBarLeft = _interopRequireDefault(require("./sideBarLeft"));
 
@@ -43,5 +49,7 @@ var _header = _interopRequireDefault(require("./header"));
 var _search = _interopRequireDefault(require("./search"));
 
 var _slider = _interopRequireDefault(require("./slider"));
+
+var _player = _interopRequireDefault(require("./player"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
