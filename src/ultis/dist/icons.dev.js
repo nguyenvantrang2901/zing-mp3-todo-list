@@ -15,6 +15,8 @@ var _ai = require("react-icons/ai");
 
 var _bs = require("react-icons/bs");
 
+var _ci = require("react-icons/ci");
+
 var icons = {
   MdOutlineLibraryMusic: _md.MdOutlineLibraryMusic,
   TbChartDonut2: _tb.TbChartDonut2,
@@ -27,7 +29,14 @@ var icons = {
   HiArrowNarrowRight: _hi.HiArrowNarrowRight,
   AiOutlineHeart: _ai.AiOutlineHeart,
   AiFillHeart: _ai.AiFillHeart,
-  HiDotsHorizontal: _hi.HiDotsHorizontal
+  HiDotsHorizontal: _hi.HiDotsHorizontal,
+  CiRepeat: _ci.CiRepeat,
+  MdSkipNext: _md.MdSkipNext,
+  MdSkipPrevious: _md.MdSkipPrevious,
+  BsShuffle: _bs.BsShuffle,
+  BsPlayFill: _bs.BsPlayFill,
+  BsPauseFill: _bs.BsPauseFill,
+  HiPause: _hi.HiPause
 };
 var _default = icons;
 exports["default"] = _default;

@@ -5,7 +5,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setCurSongId = void 0;
+exports.play = exports.setCurSongId = void 0;
 
 var _actionTypes = _interopRequireDefault(require("./actionTypes"));
 
@@ -25,3 +25,12 @@ var setCurSongId = function setCurSongId(songId) {
 };
 
 exports.setCurSongId = setCurSongId;
+
+var play = function play(flag) {
+  return {
+    type: _actionTypes["default"].PLAY,
+    flag: flag
+  };
+};
+
+exports.play = play;
