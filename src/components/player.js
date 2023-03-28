@@ -1,7 +1,8 @@
-import React,{useEffect, useState} from 'react'
-import {useSelector} from 'react-redux';
+import React,{useEffect, useState, useRef} from 'react'
+import {useSelector, useDispatch} from 'react-redux';
 import * as apis from '../apis';
 import icons from '../ultis/icons';
+import * as actions from '../store/actions'
 
 const {
   AiOutlineHeart,
@@ -16,7 +17,8 @@ const {
 
 
 const Player = () => {
-  const audioElement = new Audio()
+  const dispatch = useDispatch()
+  const audioElement = useRef(new Audio())
   // console.log(audioElement)
   const {curSongId, isPlaying} = useSelector(state=>state.music)
   const [songInfo, setSongInfo] = useState(null)
@@ -41,12 +43,24 @@ const Player = () => {
     fetchDetailSong()
   },[curSongId])
 
-  useEffect(() => { 
-
-  },[curSongId])
+  useEffect(() => {
+    audioElement.current.pause()
+    audioElement.current.src = source
+    audioElement.current.load()
+    if(isPlaying){
+      audioElement.current.play()
+    }
+  },[curSongId,source])
 
   const handleTogglePlayMusic = () => { 
-    audioElement.play()
+    if (isPlaying){
+      audioElement.current.pause()
+      dispatch(actions.play(false))
+    }
+    else{
+      audioElement.current.play()
+      dispatch(actions.play(true))
+    }
   }
 
   return (
