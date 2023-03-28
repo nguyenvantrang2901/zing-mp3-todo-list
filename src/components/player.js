@@ -18,12 +18,9 @@ const {
 
 const Player = () => {
   const dispatch = useDispatch()
-  const audioElement = useRef(new Audio())
-  // console.log(audioElement)
   const {curSongId, isPlaying} = useSelector(state=>state.music)
   const [songInfo, setSongInfo] = useState(null)
-  const [source, setSource] = useState(null)
-  // const [isPlaying, setisPlaying] = useState(false)
+  const [audio, setAudio] = useState(new Audio())
   // console.log(curSongId)
   //useEffect ko đc phép sư dụng bất đồng bộ 
   // mà phải định nghĩa hàm để xử lý việc đó.
@@ -37,28 +34,27 @@ const Player = () => {
         setSongInfo(res1.data.data)
       }
       if(res2.data.err === 0){
-        setSource(res2.data.data['128'])
+        audio.pause()
+        setAudio(new Audio(res2.data.data['128']))
       }
     }
     fetchDetailSong()
   },[curSongId])
 
   useEffect(() => {
-    audioElement.current.pause()
-    audioElement.current.src = source
-    audioElement.current.load()
+    audio.load()
     if(isPlaying){
-      audioElement.current.play()
+      audio.play()
     }
-  },[curSongId,source])
+  },[audio])
 
   const handleTogglePlayMusic = () => { 
     if (isPlaying){
-      audioElement.current.pause()
+      audio.pause()
       dispatch(actions.play(false))
     }
     else{
-      audioElement.current.play()
+      audio.play()
       dispatch(actions.play(true))
     }
   }

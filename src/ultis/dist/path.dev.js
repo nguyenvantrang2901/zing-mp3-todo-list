@@ -10,7 +10,8 @@ var path = {
   LOGIN: 'login',
   STAR: "/*",
   MY_MUSIC: "mymusic",
-  ALBUM__TITLE__PID: "album/:title/:playlistId"
+  ALBUM__TITLE__PID: "album/:title/:playlistId",
+  PLAYLIST__TITLE__PID: "playlist/:title/:playlistId"
 };
 var _default = path;
 exports["default"] = _default;
