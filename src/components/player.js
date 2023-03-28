@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import * as apis from '../apis';
 import icons from '../ultis/icons';
 import * as actions from '../store/actions'
+import moment from 'moment';
 
 const {
   AiOutlineHeart,
@@ -15,12 +16,32 @@ const {
   BsPauseFill,
 } = icons;
 
-
+var intervalId 
 const Player = () => {
   const dispatch = useDispatch()
   const {curSongId, isPlaying} = useSelector(state=>state.music)
   const [songInfo, setSongInfo] = useState(null)
   const [audio, setAudio] = useState(new Audio())
+  const [currentSeconds, setCurrentSeconds] = useState(0)
+  //Thanh nằm bên trên của trình phát nhạc
+  const thumbRef = useRef()
+  useEffect(() => {
+    if(isPlaying){
+      intervalId = setInterval(() => { 
+        let percent = Math.round(audio.currentTime * 10000 / songInfo?.duration) / 100
+        thumbRef.current.style.cssText = `right: ${100 - percent}%`
+        setCurrentSeconds(Math.round(audio.currentTime))
+      },200)
+      // return()=>{
+      //   intervalId && clearInterval(intervalId)
+      // }
+    }
+    else{
+      intervalId && clearInterval(intervalId)
+    }
+    
+  },[isPlaying])
+
   // console.log(curSongId)
   //useEffect ko đc phép sư dụng bất đồng bộ 
   // mà phải định nghĩa hàm để xử lý việc đó.
@@ -109,10 +130,14 @@ const Player = () => {
           </span>
 
         </div>
-        <div>
-          <span>
-            Phát nhạc
-          </span>
+        <div className='w-full flex pt-1 items-center justify-center gap-3 text-sm'>
+          <span>{moment.utc(currentSeconds*1000).format('mm:ss')}</span>
+
+          <div className='rounded-r-full rounded-f-full w-3/5 h-[3px] bg-[rgba(0,0,0,0.1)] relative'>
+            <div ref={thumbRef} className='rounded-r-full rounded-f-full absolute top-0 left-0 h-[3px] bg-[#0e8080]'></div>
+          </div>
+
+          <span> {moment.utc(songInfo?.duration*1000).format('mm:ss')}</span>
         </div>
       </div>
 
