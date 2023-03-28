@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import * as apis from "../../apis";
 import moment from 'moment';
 import {Lists} from '../../components';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const Album = () => {
   const { title, playlistId } = useParams();
@@ -19,38 +20,41 @@ const Album = () => {
     fetchDetailPlayList();
   }, [playlistId]);
   return (
-    <div className="flex w-full gap-8 px-[59px]">
-      <div className="w-[30%] border border-red-400 flex flex-none flex-col items-center gap-2">
-        <img 
-            className="w-full object-contain rounded-md shadow-md"
-            src={playlistData?.thumbnailM} alt="Images Album" 
-        />
-        <div className="flex flex-col items-center gap-1">
-            <h3 className="text-gray-800 text-[20px] font-bold">{playlistData?.title}</h3>
-            <span className="flex gap-2 items-center text-gray-500 text-xs font-semibold">
-                <span>Cập nhật: </span>
-                <span>
-                    {moment.unix(playlistData?.contentLastUpdate).format("DD/MM/YYYY")}
-                </span>
-            </span>
-            <span className="flex gap-2 items-center text-gray-500 text-xs font-semibold">{playlistData?.artistsNames}</span>
-            <span className="flex gap-2 items-center text-gray-500 text-xs font-semibold">
-                {`${Math.round(playlistData?.like/1000)}K người yêu thích`} 
-            </span>
+    
+    <div className="flex w-full h-full gap-8 px-[59px]">
+        <div className="w-[30%] border border-red-400 flex flex-none flex-col items-center gap-2">
+          <img 
+              className="w-full object-contain rounded-md shadow-md"
+              src={playlistData?.thumbnailM} alt="Images Album" 
+          />
+          <div className="flex flex-col items-center gap-1">
+              <h3 className="text-gray-800 text-[20px] font-bold">{playlistData?.title}</h3>
+              <span className="flex gap-2 items-center text-gray-500 text-xs font-semibold">
+                  <span>Cập nhật: </span>
+                  <span>
+                      {moment.unix(playlistData?.contentLastUpdate).format("DD/MM/YYYY")}
+                  </span>
+              </span>
+              <span className="flex gap-2 items-center text-gray-500 text-xs font-semibold">{playlistData?.artistsNames}</span>
+              <span className="flex gap-2 items-center text-gray-500 text-xs font-semibold">
+                  {playlistData?.like > 1000 ? `${Math.round(playlistData?.like/1000)}K người yêu thích` : `${playlistData?.like} người yêu thích`} 
+              </span>
+          </div>
         </div>
-      </div>
-      <div className="border border-red-400 flex-auto overflow-y-auto">
-        <span className="text-sm">
-          <span className="text-gray-700">Lời tựa </span>
-          <span className="font-semibold">{playlistData?.sortDescription}</span>
-        </span>
+        <Scrollbars  style={{ width: "100%", height: "80%" }}>
+        <div className="border border-red-400 flex-auto">
+          <span className="text-sm">
+            <span className="text-gray-700">Lời tựa </span>
+            <span className="font-semibold">{playlistData?.sortDescription}</span>
+          </span>
 
-        <Lists 
-          songs={playlistData?.song?.items} 
-          totalDuration={playlistData?.song?.totalDuration}
-        /> 
+          <Lists 
+            songs={playlistData?.song?.items} 
+            totalDuration={playlistData?.song?.totalDuration}
+          /> 
+        </div>
+        </Scrollbars>
       </div>
-    </div>
   );
 };
 

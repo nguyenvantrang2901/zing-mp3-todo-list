@@ -6,9 +6,9 @@ import icons from '../ultis/icons'
 const {BsMusicNoteBeamed} = icons
 
 const List = ({songData}) => {
-    console.log(songData)
+    // console.log(songData)
   return (
-    <div className='flex justify-between items-center p-[10px]'>
+    <div className='flex justify-between items-center p-[10px] border-t border-[rgba(0,0,0,0.05)] hover:bg-[#DDE4EA] cursor-pointer'>
         <div className='flex items-center gap-3 flex-1'>
             <span><BsMusicNoteBeamed/></span>
             <img src={songData?.thumbnail} alt="Thumbnail" className='w-10 h-10 object-cover rounded-md' />

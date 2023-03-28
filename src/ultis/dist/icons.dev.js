@@ -40,7 +40,8 @@ var icons = {
   BsPauseFill: _bs.BsPauseFill,
   HiPause: _hi.HiPause,
   BsMusicNoteBeamed: _bs.BsMusicNoteBeamed,
-  BiSortAlt2: _bi.BiSortAlt2
+  BiSortAlt2: _bi.BiSortAlt2,
+  BsDot: _bs.BsDot
 };
 var _default = icons;
 exports["default"] = _default;

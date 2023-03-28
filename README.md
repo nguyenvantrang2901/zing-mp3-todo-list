@@ -8,3 +8,4 @@ https://www.npmjs.com/package/react-toastify
 Format Code từng đoạn: 
 -----------------Ctrl + K + F------------------
 5. Format timestamps sag date sử dụng thư viện MOMENT
+6. Sử dụng memo để tránh re-render lại component khi đc truyền Props (vd ở list.js)
