@@ -1,8 +1,8 @@
 import React, { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import * as apis from "../../apis";
-import { Header } from "../../components";
 import moment from 'moment';
+import {Lists} from '../../components';
 
 const Album = () => {
   const { title, playlistId } = useParams();
@@ -20,7 +20,7 @@ const Album = () => {
   }, [playlistId]);
   return (
     <div className="flex w-full gap-8 px-[59px]">
-      <div className="w-1/4 border border-red-400 flex flex-none flex-col items-center gap-2">
+      <div className="w-[30%] border border-red-400 flex flex-none flex-col items-center gap-2">
         <img 
             className="w-full object-contain rounded-md shadow-md"
             src={playlistData?.thumbnailM} alt="Images Album" 
@@ -39,8 +39,16 @@ const Album = () => {
             </span>
         </div>
       </div>
-      <div className="border border-red-400 flex-auto">
-        Detail 
+      <div className="border border-red-400 flex-auto overflow-y-auto">
+        <span className="text-sm">
+          <span className="text-gray-700">Lời tựa </span>
+          <span className="font-semibold">{playlistData?.sortDescription}</span>
+        </span>
+
+        <Lists 
+          songs={playlistData?.song?.items} 
+          totalDuration={playlistData?.song?.totalDuration}
+        /> 
       </div>
     </div>
   );

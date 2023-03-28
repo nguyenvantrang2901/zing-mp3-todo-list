@@ -17,6 +17,8 @@ var _bs = require("react-icons/bs");
 
 var _ci = require("react-icons/ci");
 
+var _bi = require("react-icons/bi");
+
 var icons = {
   MdOutlineLibraryMusic: _md.MdOutlineLibraryMusic,
   TbChartDonut2: _tb.TbChartDonut2,
@@ -36,7 +38,9 @@ var icons = {
   BsShuffle: _bs.BsShuffle,
   BsPlayFill: _bs.BsPlayFill,
   BsPauseFill: _bs.BsPauseFill,
-  HiPause: _hi.HiPause
+  HiPause: _hi.HiPause,
+  BsMusicNoteBeamed: _bs.BsMusicNoteBeamed,
+  BiSortAlt2: _bi.BiSortAlt2
 };
 var _default = icons;
 exports["default"] = _default;

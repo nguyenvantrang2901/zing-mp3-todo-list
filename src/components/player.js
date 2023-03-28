@@ -5,7 +5,6 @@ import icons from '../ultis/icons';
 
 const {
   AiOutlineHeart,
-  AiFillHeart,
   HiDotsHorizontal,
   CiRepeat,
   MdSkipPrevious,
@@ -13,7 +12,6 @@ const {
   BsShuffle,
   BsPlayFill,
   BsPauseFill,
-  HiPause
 } = icons;
 
 
