@@ -4,6 +4,8 @@ import * as apis from '../apis';
 import icons from '../ultis/icons';
 import * as actions from '../store/actions'
 import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const {
   AiOutlineHeart,
@@ -25,22 +27,8 @@ const Player = () => {
   const [currentSeconds, setCurrentSeconds] = useState(0)
   //Thanh nằm bên trên của trình phát nhạc
   const thumbRef = useRef()
-  useEffect(() => {
-    if(isPlaying){
-      intervalId = setInterval(() => { 
-        let percent = Math.round(audio.currentTime * 10000 / songInfo?.duration) / 100
-        thumbRef.current.style.cssText = `right: ${100 - percent}%`
-        setCurrentSeconds(Math.round(audio.currentTime))
-      },200)
-      // return()=>{
-      //   intervalId && clearInterval(intervalId)
-      // }
-    }
-    else{
-      intervalId && clearInterval(intervalId)
-    }
-    
-  },[isPlaying])
+  //
+  const trackRef = useRef()
 
   // console.log(curSongId)
   //useEffect ko đc phép sư dụng bất đồng bộ 
@@ -57,15 +45,31 @@ const Player = () => {
       if(res2.data.err === 0){
         audio.pause()
         setAudio(new Audio(res2.data.data['128']))
+      } else {
+        setAudio(new Audio())
+        audio.pause()
+        dispatch(actions.play(false))
+        toast.warn(res2?.data?.msg)
+        setCurrentSeconds(0)
+        thumbRef.current.style.cssText = `right: 100%`
       }
     }
     fetchDetailSong()
   },[curSongId])
 
+  //set dependence là audio vì khi thay đổi bài nhạc sẽ set lại state của bài hát thay vì isPlaying
+  // vì nếu lấy isPlaying thì khi click 1 bài khác thì isPlaying vẫn ở trạng thái True nên ko load lại số giây
   useEffect(() => {
+    intervalId && clearInterval(intervalId)
+    audio.pause()
     audio.load()
     if(isPlaying){
       audio.play()
+      intervalId = setInterval(() => { 
+        let percent = Math.round(audio.currentTime * 10000 / songInfo?.duration) / 100
+        thumbRef.current.style.cssText = `right: ${100 - percent}%`
+        setCurrentSeconds(Math.round(audio.currentTime))
+      },200)
     }
   },[audio])
 
@@ -79,6 +83,15 @@ const Player = () => {
       dispatch(actions.play(true))
     }
   }
+  const handleProgressBar =(e)=>{
+    //Lấy tọa độ nằm ngang của thanh nhạc khi click chuột vào thanh đó.
+    const trackRect = trackRef.current.getBoundingClientRect()
+    const percent = Math.round((e.clientX - trackRect.left) * 10000 / trackRect.width) / 100
+    console.log(percent);
+    thumbRef.current.style.cssText = `right: ${100 - percent}%`
+    audio.currentTime = percent * songInfo.duration / 100
+    setCurrentSeconds(Math.round(audio.currentTime))
+  } 
 
   return (
     <div className="bg-main-400 px-5 h-full flex">
@@ -133,8 +146,12 @@ const Player = () => {
         <div className='w-full flex pt-1 items-center justify-center gap-3 text-sm'>
           <span>{moment.utc(currentSeconds*1000).format('mm:ss')}</span>
 
-          <div className='rounded-r-full rounded-f-full w-3/5 h-[3px] bg-[rgba(0,0,0,0.1)] relative'>
-            <div ref={thumbRef} className='rounded-r-full rounded-f-full absolute top-0 left-0 h-[3px] bg-[#0e8080]'></div>
+          <div 
+            className='rounded-r-full rounded-l-full hover:h-[8px] cursor-pointer w-3/5 h-[3px] bg-[rgba(0,0,0,0.1)] relative'
+            onClick={handleProgressBar}
+            ref = {trackRef}
+          >
+            <div ref={thumbRef} className='rounded-r-full rounded-l-full absolute top-0 bottom-0 left-0 bg-[#0e8080]'></div>
           </div>
 
           <span> {moment.utc(songInfo?.duration*1000).format('mm:ss')}</span>
@@ -145,6 +162,19 @@ const Player = () => {
         Volume
       </div>
 
+
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   )
 }
