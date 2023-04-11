@@ -14,6 +14,7 @@ const Public = () => {
               <Header/>
             </div>
           <Outlet/>
+          <div className='w-full h-[200px]'></div>
         </div>
         <div className='w-[329px] flex-none border border-gray-500 hidden 1600:flex animate-slide-left'>
           <SideBarRight/>
