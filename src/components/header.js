@@ -17,7 +17,7 @@ const Header = () => {
             </div>
         </div>
         <div>
-          <button>Login</button>
+          <button className="items-center text-gray-600 justify-center bg-blue-500 border rounded-lg"> Login </button>
         </div>
     </div>
   )

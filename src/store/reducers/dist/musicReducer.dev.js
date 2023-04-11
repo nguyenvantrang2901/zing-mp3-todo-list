@@ -17,7 +17,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var initState = {
   curSongId: null,
-  isPlaying: false
+  isPlaying: false,
+  // atAlbum dùng để xử lý khi type của bài hát để chuyển đổi bài hát qua lại
+  atAlbum: false,
+  songs: null
 };
 
 var musicReducer = function musicReducer() {
@@ -33,6 +36,16 @@ var musicReducer = function musicReducer() {
     case _actionTypes["default"].PLAY:
       return _objectSpread({}, state, {
         isPlaying: action.flag
+      });
+
+    case _actionTypes["default"].SET_ALBUM:
+      return _objectSpread({}, state, {
+        atAlbum: action.flag
+      });
+
+    case _actionTypes["default"].PLAY_LIST:
+      return _objectSpread({}, state, {
+        songs: action.songs || null
       });
 
     default:

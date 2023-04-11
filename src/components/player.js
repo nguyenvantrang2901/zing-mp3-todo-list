@@ -21,7 +21,7 @@ const {
 var intervalId 
 const Player = () => {
   const dispatch = useDispatch()
-  const {curSongId, isPlaying} = useSelector(state=>state.music)
+  const {curSongId, isPlaying, songs} = useSelector(state=>state.music)
   const [songInfo, setSongInfo] = useState(null)
   const [audio, setAudio] = useState(new Audio())
   const [currentSeconds, setCurrentSeconds] = useState(0)
@@ -87,11 +87,37 @@ const Player = () => {
     //Lấy tọa độ nằm ngang của thanh nhạc khi click chuột vào thanh đó.
     const trackRect = trackRef.current.getBoundingClientRect()
     const percent = Math.round((e.clientX - trackRect.left) * 10000 / trackRect.width) / 100
-    console.log(percent);
+    // console.log(percent);
     thumbRef.current.style.cssText = `right: ${100 - percent}%`
     audio.currentTime = percent * songInfo.duration / 100
     setCurrentSeconds(Math.round(audio.currentTime))
   } 
+  // Handle bài hát tiếp theo
+  const handleNextSong = () => {
+    if (songs){
+      let currentSongIndex
+      songs?.forEach((item, index)=>{
+        if(item.encodeId === curSongId) 
+          currentSongIndex = index
+      })
+      // console.log(currentSongIndex);
+      dispatch(actions.setCurSongId(songs[currentSongIndex + 1].encodeId))
+      dispatch(actions.play(true))
+    }
+   }
+  // Handle Bài hát trước đó
+  const handlePreviewSong = () => { 
+    
+    if(songs) {
+      let currentSongsIndex
+      songs?.forEach((item,index)=>{
+        if(item.encodeId === curSongId)
+          currentSongsIndex = index
+      })
+      dispatch(actions.setCurSongId(songs[currentSongsIndex - 1].encodeId))
+      dispatch(actions.play(true))
+    }
+  }
 
   return (
     <div className="bg-main-400 px-5 h-full flex">
@@ -123,7 +149,10 @@ const Player = () => {
             <BsShuffle size={24}/>
           </span>
 
-          <span className='cursor-pointer'>
+          <span   
+            className='cursor-pointer'
+            onClick={handlePreviewSong}
+          >
             <MdSkipPrevious size={24}/>
           </span>
 
@@ -134,11 +163,18 @@ const Player = () => {
             {isPlaying ? <BsPauseFill size={30}/> : <BsPlayFill size={30}/>}
           </span>
 
-          <span className='cursor-pointer'>
+          <span 
+            className={`${!songs ? 'text-gray-500' : 'cursor-pointer'}`}
+            onClick={handleNextSong}
+          >
             <MdSkipNext size={24}/>
           </span>
           
-          <span className='cursor-pointer' title="Bật phát lại tất cả">
+          <span 
+            className='cursor-pointer' 
+            title="Bật phát lại tất cả"
+           
+          >
             <CiRepeat size={24}/>
           </span>
 

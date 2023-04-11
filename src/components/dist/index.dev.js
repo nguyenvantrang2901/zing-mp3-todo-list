@@ -51,6 +51,12 @@ Object.defineProperty(exports, "List", {
     return _list["default"];
   }
 });
+Object.defineProperty(exports, "Section", {
+  enumerable: true,
+  get: function get() {
+    return _section["default"];
+  }
+});
 
 var _sideBarLeft = _interopRequireDefault(require("./sideBarLeft"));
 
@@ -67,5 +73,7 @@ var _player = _interopRequireDefault(require("./player"));
 var _lists = _interopRequireDefault(require("./lists"));
 
 var _list = _interopRequireDefault(require("./list"));
+
+var _section = _interopRequireDefault(require("./section"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
