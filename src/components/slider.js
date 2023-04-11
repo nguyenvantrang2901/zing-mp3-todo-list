@@ -72,11 +72,11 @@ const Slider = () => {
     <div className='flex gap-8 w-full overflow-hidden px-[59px] pt-8'>
       {banner?.map((item, index) => (
         <img
-          alt=''
+          alt='slider'
           onClick={()=>hanldeClickBanner(item)}
           src={item.banner}
           key={item.encodeId}
-          className={`slider-item flex-1 object-contain w-[30%] rounded-lg ${index <= 2 ? 'block' : 'hidden'}`}
+          className={`cursor-pointer slider-item flex-1 object-contain w-[30%] rounded-lg ${index <= 2 ? 'block' : 'hidden'}`}
         />
       ))}
     </div>

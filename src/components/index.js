@@ -7,3 +7,4 @@ export {default as Player} from './player';
 export {default as Lists} from './lists';
 export {default as List} from './list';
 export { default as Section} from './section';
+export { default as TrendingArtist} from './trending_artist'
