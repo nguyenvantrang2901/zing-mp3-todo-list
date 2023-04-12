@@ -1,5 +1,5 @@
 import React from 'react';
-import {Slider } from '../../components';
+import {PositiveEnergy, Slider } from '../../components';
 import Section from '../../components/section';
 import TrendingArtist from '../../components/trending_artist';
 
@@ -10,6 +10,7 @@ const Home = () => {
         <Slider/>
         <TrendingArtist/>
         <Section/>
+        <PositiveEnergy/>
     </div>
   )
 }

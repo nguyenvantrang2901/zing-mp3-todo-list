@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 const Section = () => {
     const chill = useSelector(state=> state.app)
     const navigate = useNavigate()
-    console.log("chill",chill)
+    // console.log("chill",chill)
   return (
     <div className='flex flex-col mt-12 px-[59px] gap-5'>
         <div>

@@ -63,6 +63,12 @@ Object.defineProperty(exports, "TrendingArtist", {
     return _trending_artist["default"];
   }
 });
+Object.defineProperty(exports, "PositiveEnergy", {
+  enumerable: true,
+  get: function get() {
+    return _power["default"];
+  }
+});
 
 var _sideBarLeft = _interopRequireDefault(require("./sideBarLeft"));
 
@@ -83,5 +89,7 @@ var _list = _interopRequireDefault(require("./list"));
 var _section = _interopRequireDefault(require("./section"));
 
 var _trending_artist = _interopRequireDefault(require("./trending_artist"));
+
+var _power = _interopRequireDefault(require("./power"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
