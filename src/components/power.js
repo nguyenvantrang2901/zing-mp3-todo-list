@@ -13,7 +13,7 @@ const PositiveEnergy = () => {
       </div>
       <div className='flex items-center gap-7 mb-5'>
         {
-          power?.power?.items.map(item=>(
+          power?.power?.items?.map(item=>(
             <div
               key={item?.encodeId}
               className='w-1/5 text-sm flex flex-col flex-auto gap-3'  
@@ -26,7 +26,7 @@ const PositiveEnergy = () => {
                   navigate(item?.link?.split('.')[0])
                 }}
               />
-              <div>{item?.sortDescription}</div>
+              <div>{item?.sortDescription.length > 30 ? `${item?.sortDescription.slice(0,30)}...` : item?.sortDescription}</div>
             </div>
           ))
         }

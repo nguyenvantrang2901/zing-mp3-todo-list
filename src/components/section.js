@@ -25,7 +25,7 @@ const Section = () => {
                         <img className='h-auto w-full rounded-lg' src={item?.thumbnailM} alt="avatar" />
                         <span className='flex flex-col'>
                             {/* <span>{item?.title}</span> */}
-                            <span>{item?.sortDescription.length> 40 ? `${item?.sortDescription.slice(0,40)}...` : item?.sortDescription }</span>
+                            <span>{item?.sortDescription.length> 30 ? `${item?.sortDescription.slice(0,30)}...` : item?.sortDescription }</span>
                         </span>
                     </div>
                 ))}

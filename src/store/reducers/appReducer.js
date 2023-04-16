@@ -4,7 +4,9 @@ const initState = {
     banner:[],
     chill : {},
     artists: {},
-    power: {}
+    power: {},
+    top100 : {},
+
 }
 const appReducer = (state = initState, action) => { 
     switch (action.type) {
@@ -16,6 +18,7 @@ const appReducer = (state = initState, action) => {
                 chill: action.homeData?.find(item=>item.sectionId === "hEditorTheme") || {},
                 artists: action.homeData?.find(item=>item.sectionId === "hArtistTheme") || {},
                 power: action.homeData?.find(item=>item.sectionId === "hEditorTheme2") || {},
+                top100: action.homeData?.find(item=>item.sectionId === "h100") || {},
                 
             }
 

@@ -25,6 +25,9 @@ const Player = () => {
   const [songInfo, setSongInfo] = useState(null)
   const [audio, setAudio] = useState(new Audio())
   const [currentSeconds, setCurrentSeconds] = useState(0)
+  const [isShuffle, setIsShuffle] = useState(false)
+  const [isRepeat, setIsRepeat] = useState(false)
+
   //Thanh nằm bên trên của trình phát nhạc
   const thumbRef = useRef()
   //
@@ -56,6 +59,25 @@ const Player = () => {
     }
     fetchDetailSong()
   },[curSongId])
+  useEffect(()=>{
+    const handleEnd = () =>{
+      console.log(isShuffle);
+      if(isShuffle){
+        handleShuffle()
+      }
+      else if(isRepeat){
+        handleNextSong()
+      }
+      else {
+        audio.pause()
+        dispatch(actions.play(false))
+      }
+    }
+    audio.addEventListener('ended', handleEnd)
+    return ()=>{
+      audio.removeEventListener('ended', handleEnd)
+    }
+  },[audio, isShuffle, isRepeat])
 
   //set dependence là audio vì khi thay đổi bài nhạc sẽ set lại state của bài hát thay vì isPlaying
   // vì nếu lấy isPlaying thì khi click 1 bài khác thì isPlaying vẫn ở trạng thái True nên ko load lại số giây
@@ -63,7 +85,7 @@ const Player = () => {
     intervalId && clearInterval(intervalId)
     audio.pause()
     audio.load()
-    if(isPlaying){
+    if(isPlaying && thumbRef.current){
       audio.play()
       intervalId = setInterval(() => { 
         let percent = Math.round(audio.currentTime * 10000 / songInfo?.duration) / 100
@@ -119,6 +141,18 @@ const Player = () => {
     }
   }
 
+  //Bật phát ngẫu nhiên
+  const handleShuffle = () => { 
+    const randomIndex = Math.round(Math.random()*songs?.length) -1
+    dispatch(actions.setCurSongId(songs[randomIndex].encodeId))
+    dispatch(actions.play(true))
+    setIsShuffle(prev => !prev)
+  }
+
+  //Bật phát lại tất cả
+  const handlerRepeat = () => { 
+    alert("Phát tát cả")
+  }
   return (
     <div className="bg-main-400 px-5 h-full flex">
 
@@ -145,7 +179,11 @@ const Player = () => {
       <div className='w-[40%] flex flex-auto flex-col border border-red-500 items-center justify-center py-2'>
         <div className='flex gap-8 justify-center items-center'>
 
-          <span className='cursor-pointer' title="Bật phát ngẫu nhiên">
+          <span 
+              className={`cursor-pointer ${isShuffle ? 'text-purple-900' : 'text-gray-600'}`}
+              title="Bật phát ngẫu nhiên"
+              onClick={handleShuffle}
+          >
             <BsShuffle size={24}/>
           </span>
 
@@ -173,7 +211,7 @@ const Player = () => {
           <span 
             className='cursor-pointer' 
             title="Bật phát lại tất cả"
-           
+            onClick = {handlerRepeat}
           >
             <CiRepeat size={24}/>
           </span>
