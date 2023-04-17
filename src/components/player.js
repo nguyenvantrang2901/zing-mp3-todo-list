@@ -61,7 +61,7 @@ const Player = () => {
   },[curSongId])
   useEffect(()=>{
     const handleEnd = () =>{
-      console.log(isShuffle);
+      // console.log(isShuffle);
       if(isShuffle){
         handleShuffle()
       }
@@ -182,7 +182,7 @@ const Player = () => {
           <span 
               className={`cursor-pointer ${isShuffle ? 'text-purple-900' : 'text-gray-600'}`}
               title="Bật phát ngẫu nhiên"
-              onClick={handleShuffle}
+              onClick ={()=>setIsShuffle(prev => !prev)}
           >
             <BsShuffle size={24}/>
           </span>
@@ -209,9 +209,9 @@ const Player = () => {
           </span>
           
           <span 
-            className='cursor-pointer' 
+            className='cursor-pointer ' 
             title="Bật phát lại tất cả"
-            onClick = {handlerRepeat}
+            onClick ={()=>setIsRepeat(prev => !prev)}
           >
             <CiRepeat size={24}/>
           </span>
