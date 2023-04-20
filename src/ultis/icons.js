@@ -5,6 +5,7 @@ import {AiOutlineArrowLeft,AiOutlineArrowRight,AiOutlineHeart,AiFillHeart} from 
 import {BsSearch, BsShuffle,BsPlayFill,BsPauseFill,BsMusicNoteBeamed,BsDot} from 'react-icons/bs';
 import {CiRepeat} from 'react-icons/ci';
 import {BiSortAlt2} from 'react-icons/bi';
+import {TbRepeatOnce} from 'react-icons/tb';
 
 const icons = {
     MdOutlineLibraryMusic,
@@ -28,6 +29,8 @@ const icons = {
     HiPause,
     BsMusicNoteBeamed,
     BiSortAlt2,
-    BsDot
+    BsDot,
+    TbRepeatOnce,
+
 }
 export default icons;

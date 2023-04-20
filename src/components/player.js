@@ -16,6 +16,7 @@ const {
   BsShuffle,
   BsPlayFill,
   BsPauseFill,
+  TbRepeatOnce
 } = icons;
 
 var intervalId 
@@ -26,7 +27,7 @@ const Player = () => {
   const [audio, setAudio] = useState(new Audio())
   const [currentSeconds, setCurrentSeconds] = useState(0)
   const [isShuffle, setIsShuffle] = useState(false)
-  const [isRepeat, setIsRepeat] = useState(false)
+  const [repeatMode, setRepeatMode] = useState(0)
 
   //Thanh nằm bên trên của trình phát nhạc
   const thumbRef = useRef()
@@ -65,8 +66,8 @@ const Player = () => {
       if(isShuffle){
         handleShuffle()
       }
-      else if(isRepeat){
-        handleNextSong()
+      else if(repeatMode){
+        repeatMode === 1 ? handleRepeatOne() : handleNextSong()
       }
       else {
         audio.pause()
@@ -77,7 +78,7 @@ const Player = () => {
     return ()=>{
       audio.removeEventListener('ended', handleEnd)
     }
-  },[audio, isShuffle, isRepeat])
+  },[audio, isShuffle, repeatMode])
 
   //set dependence là audio vì khi thay đổi bài nhạc sẽ set lại state của bài hát thay vì isPlaying
   // vì nếu lấy isPlaying thì khi click 1 bài khác thì isPlaying vẫn ở trạng thái True nên ko load lại số giây
@@ -138,7 +139,7 @@ const Player = () => {
       })
       dispatch(actions.setCurSongId(songs[currentSongsIndex - 1].encodeId))
       dispatch(actions.play(true))
-    }
+    } 
   }
 
   //Bật phát ngẫu nhiên
@@ -146,7 +147,12 @@ const Player = () => {
     const randomIndex = Math.round(Math.random()*songs?.length) -1
     dispatch(actions.setCurSongId(songs[randomIndex].encodeId))
     dispatch(actions.play(true))
-    setIsShuffle(prev => !prev)
+  }
+
+  //Bật phát lại 1 lần
+  const handleRepeatOne=()=>{
+    // console.log('repeat one')
+    audio.play(true)
   }
 
   //Bật phát lại tất cả
@@ -209,11 +215,11 @@ const Player = () => {
           </span>
           
           <span 
-            className='cursor-pointer ' 
+            className={`cursor-pointer ${repeatMode  && 'text-purple-600'}` }
             title="Bật phát lại tất cả"
-            onClick ={()=>setIsRepeat(prev => !prev)}
+            onClick ={()=>setRepeatMode(prev => prev === 2 ? 0 : prev + 1 )}
           >
-            <CiRepeat size={24}/>
+            { repeatMode === 1 ? <TbRepeatOnce size={24}/> : <CiRepeat size={24}/> }
           </span>
 
         </div>
