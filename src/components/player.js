@@ -6,6 +6,7 @@ import * as actions from '../store/actions'
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {LoadingSong} from './';
 
 const {
   AiOutlineHeart,
@@ -28,7 +29,7 @@ const Player = () => {
   const [currentSeconds, setCurrentSeconds] = useState(0)
   const [isShuffle, setIsShuffle] = useState(false)
   const [repeatMode, setRepeatMode] = useState(0)
-
+  const [isLoadedSource, setIsLoadedSource] = useState(true) // mac dinh da Load dc db cua bai hat
   //Thanh nằm bên trên của trình phát nhạc
   const thumbRef = useRef()
   //
@@ -39,10 +40,12 @@ const Player = () => {
   // mà phải định nghĩa hàm để xử lý việc đó.
   useEffect(() => { 
     const fetchDetailSong = async()=>{
+      setIsLoadedSource(false) // sau khi load xong se de la false
       const [res1, res2] = await Promise.all([
         apis.apiGetInfoSong(curSongId),
         apis.apiGetSong(curSongId)
       ])
+      setIsLoadedSource(true) // Sau khi load xong set lai true
       if(res1.data.err === 0 ){
         setSongInfo(res1.data.data)
       }
@@ -204,7 +207,8 @@ const Player = () => {
              className='p-1 border border-gray-700 rounded-full hover:text-main-500 cursor-pointer'
               onClick={handleTogglePlayMusic}   
           >
-            {isPlaying ? <BsPauseFill size={30}/> : <BsPlayFill size={30}/>}
+          {/* Neu dang load thi hien thi loading . k thi hien thi play/pause */}
+            {!isLoadedSource ? <LoadingSong/> : isPlaying ? <BsPauseFill size={30}/> : <BsPlayFill size={30}/>}
           </span>
 
           <span 
