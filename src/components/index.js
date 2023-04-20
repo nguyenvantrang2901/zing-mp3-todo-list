@@ -10,3 +10,4 @@ export { default as Section} from './section';
 export { default as TrendingArtist} from './trending_artist';
 export { default as PositiveEnergy} from './power';
 export { default as Top100} from './top100';
+export { default as AudioLoading} from './audioLoading';
