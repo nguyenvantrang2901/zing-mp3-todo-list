@@ -1,18 +1,17 @@
 import React from 'react';
-import { Slider, Top100 } from '../../components';
+import { Slider } from '../../components';
 import Section from '../../components/section';
-import TrendingArtist from '../../components/trending_artist';
-import PositiveEnergy from '../../components/power';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
- 
+  const {chill,artists,power,top100} = useSelector(state=>state.app)
   return (
     <div className='overflow-y-auto w-full h-full'>
-        <Slider/>
-        <TrendingArtist/>
-        <Section/>
-        <PositiveEnergy/>
-        <Top100/>
+        <Slider />
+        <Section data={chill}/>
+        <Section data={artists}/>
+        <Section data={power}/>
+        <Section data={top100}/>
     </div>
   )
 }

@@ -7,8 +7,5 @@ export {default as Player} from './player';
 export {default as Lists} from './lists';
 export {default as List} from './list';
 export { default as Section} from './section';
-export { default as TrendingArtist} from './trending_artist';
-export { default as PositiveEnergy} from './power';
-export { default as Top100} from './top100';
 export { default as AudioLoading} from './audioLoading';
 export { default as LoadingSong} from './loadingSong';

@@ -57,24 +57,6 @@ Object.defineProperty(exports, "Section", {
     return _section["default"];
   }
 });
-Object.defineProperty(exports, "TrendingArtist", {
-  enumerable: true,
-  get: function get() {
-    return _trending_artist["default"];
-  }
-});
-Object.defineProperty(exports, "PositiveEnergy", {
-  enumerable: true,
-  get: function get() {
-    return _power["default"];
-  }
-});
-Object.defineProperty(exports, "Top100", {
-  enumerable: true,
-  get: function get() {
-    return _top["default"];
-  }
-});
 Object.defineProperty(exports, "AudioLoading", {
   enumerable: true,
   get: function get() {
@@ -105,12 +87,6 @@ var _lists = _interopRequireDefault(require("./lists"));
 var _list = _interopRequireDefault(require("./list"));
 
 var _section = _interopRequireDefault(require("./section"));
-
-var _trending_artist = _interopRequireDefault(require("./trending_artist"));
-
-var _power = _interopRequireDefault(require("./power"));
-
-var _top = _interopRequireDefault(require("./top100"));
 
 var _audioLoading = _interopRequireDefault(require("./audioLoading"));
 

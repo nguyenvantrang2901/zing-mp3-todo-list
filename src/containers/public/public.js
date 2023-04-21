@@ -21,7 +21,7 @@ const Public = () => {
                 <Outlet/>
               </Scrollbars>
             </div>
-            <div className='w-full h-[200px]'></div>
+            <div className='w-full h-[100px]'></div>
         </div>
         {
           //Khi click btn ở bên Player(ds phát) sẽ ẩn hiển cả SideBar
