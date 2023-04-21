@@ -2,19 +2,26 @@ import React, { useState } from 'react'
 import {Outlet} from 'react-router-dom';
 import {Header, Player, SideBarLeft, SideBarRight} from '../../components/index';
 
+import { Scrollbars } from 'react-custom-scrollbars-2';
+
 const Public = () => {
   const [isShowRightSideBar, setIsShowRightSideBar] = useState(true)
   return (
     <div className='w-full relative h-screen flex flex-col bg-main-300'>
       <div className='w-full h-full flex flex-auto'>
-        <div className='w-[200px] h-full flex-none border border-blue-500'>
+        <div className='w-[240px] h-full flex-none border border-blue-500'>
           <SideBarLeft/>
         </div>
-        <div className='flex-auto border border-pink-500'>
-            <div className='h-[70px] text-white px-[59px] flex items-center mb-5'>
+        <div className='flex-auto flex flex-col border border-pink-500'>
+            <div className='h-[70px] flex-none px-[59px] flex items-center'>
               <Header/>
             </div>
-          <Outlet/>
+            <div className='flex-auto w-full'>
+              <Scrollbars  style={{ width: "100%", height: "100%" }}>
+                <Outlet/>
+              </Scrollbars>
+            </div>
+            <div className='w-full h-[200px]'></div>
         </div>
         {
           //Khi click btn ở bên Player(ds phát) sẽ ẩn hiển cả SideBar

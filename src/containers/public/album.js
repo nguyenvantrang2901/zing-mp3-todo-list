@@ -58,7 +58,7 @@ const Album = () => {
               </span>
           </div>
         </div>
-        <Scrollbars  style={{ width: "100%", height: "80%" }}>
+        <Scrollbars  style={{ width: "100%", height: "100%" }}>
         <div className="border border-red-400 flex-auto">
           <span className="text-sm">
             <span className="text-gray-700">Lời tựa </span>
