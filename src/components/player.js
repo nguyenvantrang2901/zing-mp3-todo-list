@@ -17,11 +17,18 @@ const {
   BsShuffle,
   BsPlayFill,
   BsPauseFill,
-  TbRepeatOnce
+  TbRepeatOnce,
+  BsMusicNoteList,
+  BsFillVolumeMuteFill,
+  BsVolumeUpFill,
+  BsVolumeDownFill,
+  GiMicrophone,
+  MdOutlineVideoStable,
+  MdOutlineMonitor
 } = icons;
 
 var intervalId 
-const Player = () => {
+const Player = ({setIsShowRightSideBar}) => {
   const dispatch = useDispatch()
   const {curSongId, isPlaying, songs} = useSelector(state=>state.music)
   const [songInfo, setSongInfo] = useState(null)
@@ -36,6 +43,8 @@ const Player = () => {
   const trackRef = useRef()
 
   // console.log(curSongId)
+
+  const [volume, setVolume] = useState(50)
   //useEffect ko đc phép sư dụng bất đồng bộ 
   // mà phải định nghĩa hàm để xử lý việc đó.
   useEffect(() => { 
@@ -98,6 +107,11 @@ const Player = () => {
       },200)
     }
   },[audio])
+  
+  //Xử lý khi click vào thanh tắt âm lượng . Khi audio thay đổi sẽ gọi hàm Effect này
+  useEffect(()=>{
+    audio.volume = volume / 100
+  },[volume])
 
   const handleTogglePlayMusic = () => { 
     if (isPlaying){
@@ -242,8 +256,36 @@ const Player = () => {
         </div>
       </div>
 
-      <div className='w-[30%] flex-auto border border-red-500'>
-        Volume
+      <div className='flex items-center justify-end gap-4 w-[30%] flex-auto border border-red-500'>
+        
+        <div className='flex items-center justify-center gap-4 cursor-pointer'>
+          <span title="Phát MV"><MdOutlineMonitor size={20}/></span>
+          <span title="Xem lời bài hát"><GiMicrophone size={20}/></span>
+          <span title="Chế độ cửa sổ"><MdOutlineVideoStable size={20}/></span>
+        </div>
+
+        <div className='flex items-center gap-2 cursor-pointer'>
+        {/* Thêm dấu + ở trc volume để chuyển về dạng số để so sánh*/}
+          <span title='Tắt âm lượng' onClick={()=>setVolume(prev => +prev === 0 ? 50 : 0 )}>
+              {+volume>=50 ? <BsVolumeUpFill/> : +volume === 0 ? <BsFillVolumeMuteFill/> : <BsVolumeDownFill/>}
+          </span>
+          <input 
+            className='cursor-pointer'
+            type="range" 
+            step={1} 
+            min={0} 
+            max={100}
+            value={volume}
+            onChange={(e)=>setVolume(e.target.value)}
+        />
+        </div>
+        <span 
+          onClick={()=>setIsShowRightSideBar(prev=>!prev)}
+          title='Danh sách phát' 
+          className='border border-gray-600 bg-slate-400 p-1 rounded-md opacity-90 hover:opacity-100 cursor-pointer'
+        >
+          <BsMusicNoteList size={20}/>
+        </span>
       </div>
 
 

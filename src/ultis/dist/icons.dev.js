@@ -19,6 +19,8 @@ var _ci = require("react-icons/ci");
 
 var _bi = require("react-icons/bi");
 
+var _gi = require("react-icons/gi");
+
 var icons = {
   MdOutlineLibraryMusic: _md.MdOutlineLibraryMusic,
   TbChartDonut2: _tb.TbChartDonut2,
@@ -42,7 +44,14 @@ var icons = {
   BsMusicNoteBeamed: _bs.BsMusicNoteBeamed,
   BiSortAlt2: _bi.BiSortAlt2,
   BsDot: _bs.BsDot,
-  TbRepeatOnce: _tb.TbRepeatOnce
+  TbRepeatOnce: _tb.TbRepeatOnce,
+  BsMusicNoteList: _bs.BsMusicNoteList,
+  BsVolumeUpFill: _bs.BsVolumeUpFill,
+  BsFillVolumeMuteFill: _bs.BsFillVolumeMuteFill,
+  BsVolumeDownFill: _bs.BsVolumeDownFill,
+  GiMicrophone: _gi.GiMicrophone,
+  MdOutlineVideoStable: _md.MdOutlineVideoStable,
+  MdOutlineMonitor: _md.MdOutlineMonitor
 };
 var _default = icons;
 exports["default"] = _default;
