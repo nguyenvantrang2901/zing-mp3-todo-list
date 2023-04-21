@@ -11,7 +11,7 @@ const Section = ({data}) => {
                 <h3 className='font-bold text-[20px] mb-5'>{data?.title}</h3>
                 {/* <span className='cursor-pointer text-xs '>TẤT CẢ</span> */}
             </div>
-            <div className='flex mb-5 gap-7 items-center justify-between'>
+            <div className='items-start flex mb-5 gap-7 justify-between'>
                 {data?.items?.slice(0,5)?.map(item=>(
                     <div 
                         key={item.encodeId}

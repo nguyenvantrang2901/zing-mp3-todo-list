@@ -9,3 +9,4 @@ export {default as List} from './list';
 export { default as Section} from './section';
 export { default as AudioLoading} from './audioLoading';
 export { default as LoadingSong} from './loadingSong';
+export { default as LoadingData} from './loadingData';

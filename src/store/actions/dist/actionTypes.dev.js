@@ -10,7 +10,9 @@ var actionTypes = {
   //play
   PLAY: 'PLAY',
   SET_ALBUM: 'SET_ALBUM',
-  PLAY_LIST: 'PLAY_LIST'
+  PLAY_LIST: 'PLAY_LIST',
+  //LOADING DATA
+  LOADING_DATA: 'LOADING_DATA'
 };
 var _default = actionTypes;
 exports["default"] = _default;

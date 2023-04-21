@@ -5,7 +5,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setPlaylist = exports.playAlbum = exports.play = exports.setCurSongId = void 0;
+exports.loadingData = exports.setPlaylist = exports.playAlbum = exports.play = exports.setCurSongId = void 0;
 
 var _actionTypes = _interopRequireDefault(require("./actionTypes"));
 
@@ -49,6 +49,16 @@ var setPlaylist = function setPlaylist(songs) {
     type: _actionTypes["default"].PLAY_LIST,
     songs: songs
   };
+}; //Xử lý khi load data
+
+
+exports.setPlaylist = setPlaylist;
+
+var loadingData = function loadingData(flag) {
+  return {
+    type: _actionTypes["default"].LOADING_DATA,
+    flag: flag
+  };
 }; // export const fetchDetailPlayList = (playListId) =>async (dispatch) => {
 //     try {
 //         const response = await apis.apiGetDetailPlaylist(playListId)
@@ -67,4 +77,4 @@ var setPlaylist = function setPlaylist(songs) {
 // }
 
 
-exports.setPlaylist = setPlaylist;
+exports.loadingData = loadingData;

@@ -21,6 +21,11 @@ export const setPlaylist = (songs) =>({
     songs
 })
 
+//Xử lý khi load data
+export const loadingData = (flag) =>({
+    type : actionTypes.LOADING_DATA,
+    flag
+})
 // export const fetchDetailPlayList = (playListId) =>async (dispatch) => {
 //     try {
 //         const response = await apis.apiGetDetailPlaylist(playListId)

@@ -6,6 +6,7 @@ const initState = {
     artists: {},
     power: {},
     top100 : {},
+    isLoadingData:false
 
 }
 const appReducer = (state = initState, action) => { 
@@ -21,7 +22,11 @@ const appReducer = (state = initState, action) => {
                 top100: action.homeData?.find(item=>item.sectionId === "h100") || {},
                 
             }
-
+        case actionTypes.LOADING_DATA:
+            return {
+                ...state,
+                isLoadingData: action.flag
+            }
         default:
             return state
     }

@@ -10,15 +10,23 @@ import icons from '../../ultis/icons';
 
 const Album = () => {
   const {BsPlayFill} = icons
-  const {curSongId, songs, isPlaying} = useSelector(state=>state.music)
-  const { title, playlistId } = useParams();
+  const {isPlaying} = useSelector(state=>state.music)
+  const {playlistId } = useParams();
   const [playlistData, setPlaylistData] = useState({})
   const dispatch = useDispatch()
 
   // console.log(title, playlistId)
   useEffect(() => {
     const fetchDetailPlayList = async () => {
+
+      // Khi đang load data thì cho bằng True(Hiển thị icon Loading)
+      dispatch(actions.loadingData(true))
+      
       const response = await apis.apiGetDetailPlaylist(playlistId);
+
+      // Load data thành công thì sẽ set lại bằng False (Ko hiển thị Loading nữa)
+      dispatch(actions.loadingData(false))
+
     //   console.log(response);
         if(response?.data?.err === 0){
             setPlaylistData(response.data?.data)
