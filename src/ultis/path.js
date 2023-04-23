@@ -6,6 +6,7 @@ const path = {
     MY_MUSIC:"mymusic",
     ALBUM__TITLE__PID:"album/:title/:playlistId",
     PLAYLIST__TITLE__PID:"playlist/:title/:playlistId",
+    WEEKRANK_TITLE_PID:"zing-chart-tuan/:title/:pid",
 
 }
 export default path;

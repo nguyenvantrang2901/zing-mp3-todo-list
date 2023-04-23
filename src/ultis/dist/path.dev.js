@@ -11,7 +11,8 @@ var path = {
   STAR: "/*",
   MY_MUSIC: "mymusic",
   ALBUM__TITLE__PID: "album/:title/:playlistId",
-  PLAYLIST__TITLE__PID: "playlist/:title/:playlistId"
+  PLAYLIST__TITLE__PID: "playlist/:title/:playlistId",
+  WEEKRANK_TITLE_PID: "zing-chart-tuan/:title/:pid"
 };
 var _default = path;
 exports["default"] = _default;

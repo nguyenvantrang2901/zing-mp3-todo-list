@@ -10,7 +10,7 @@ const SongItem = ({thumbnail, artistsNames, title, releaseDate, songData}) => {
   const dispatch = useDispatch()
   return (
     <div 
-      className='flex flex-auto w-[30%] border p-[10px] gap-2 hover:bg-main-200 rounded-md cursor-pointer'
+      className='flex flex-auto w-[45%] min-[1024px]:w-[30%] border p-[10px] gap-2 hover:bg-main-200 rounded-md cursor-pointer'
       onClick={()=>{
             dispatch(actions.setCurSongId(songData?.encodeId))
             dispatch(actions.play(true))
