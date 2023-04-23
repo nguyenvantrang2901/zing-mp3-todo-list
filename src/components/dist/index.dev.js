@@ -75,6 +75,18 @@ Object.defineProperty(exports, "LoadingData", {
     return _loadingData["default"];
   }
 });
+Object.defineProperty(exports, "SongItem", {
+  enumerable: true,
+  get: function get() {
+    return _songItem["default"];
+  }
+});
+Object.defineProperty(exports, "NewRelease", {
+  enumerable: true,
+  get: function get() {
+    return _newRelease["default"];
+  }
+});
 
 var _sideBarLeft = _interopRequireDefault(require("./sideBarLeft"));
 
@@ -99,5 +111,9 @@ var _audioLoading = _interopRequireDefault(require("./audioLoading"));
 var _loadingSong = _interopRequireDefault(require("./loadingSong"));
 
 var _loadingData = _interopRequireDefault(require("./loadingData"));
+
+var _songItem = _interopRequireDefault(require("./songItem"));
+
+var _newRelease = _interopRequireDefault(require("./newRelease"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

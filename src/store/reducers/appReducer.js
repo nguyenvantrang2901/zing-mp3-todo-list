@@ -6,7 +6,8 @@ const initState = {
     artists: {},
     power: {},
     top100 : {},
-    isLoadingData:false
+    isLoadingData:false,
+    newRelease:{}
 
 }
 const appReducer = (state = initState, action) => { 
@@ -19,6 +20,7 @@ const appReducer = (state = initState, action) => {
                 chill: action.homeData?.find(item=>item.sectionId === "hEditorTheme") || {},
                 artists: action.homeData?.find(item=>item.sectionId === "hArtistTheme") || {},
                 power: action.homeData?.find(item=>item.sectionId === "hEditorTheme2") || {},
+                newRelease: action.homeData?.find(item=>item.sectionType === "new-release") || {},
                 top100: action.homeData?.find(item=>item.sectionId === "h100") || {},
                 
             }

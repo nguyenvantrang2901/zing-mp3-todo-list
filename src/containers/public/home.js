@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider } from '../../components';
+import { Slider, NewRelease } from '../../components';
 import Section from '../../components/section';
 import { useSelector } from 'react-redux';
 
@@ -11,6 +11,7 @@ const Home = () => {
         {/* <div>Gần đây</div>
         <div>Có thể bạn muốn nghe</div>
         <div>Mới phát hành</div> */}
+        <NewRelease/>
         <Section data={chill}/>
         <Section data={power}/>
         <Section data={artists}/>
