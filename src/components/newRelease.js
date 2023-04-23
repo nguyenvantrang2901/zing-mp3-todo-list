@@ -61,6 +61,7 @@ const NewRelease = () => {
                     thumbnail={item?.thumbnail}
                     releaseDate={item?.releaseDate}
                     link={item?.link}
+                    songData = {item}
                 />
             ))}
         </div>

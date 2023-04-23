@@ -1,18 +1,21 @@
 import React, { memo } from 'react'
 import moment from 'moment'
 import 'moment/locale/vi' //Chuyển về tiếng việt(trường releaseDate)
-// import { useNavigate } from 'react-router-dom'
+import * as actions from '../store/actions'
+import { useDispatch } from 'react-redux'
 
 //Truyển props để lấy dữ liệu từ file newRelase xuống.
 //tạo componets SongItem để sử dụng đc nhiều lần
-const SongItem = ({thumbnail, artistsNames, title, releaseDate, link}) => {
-  // const navigate = useNavigate()
+const SongItem = ({thumbnail, artistsNames, title, releaseDate, songData}) => {
+  const dispatch = useDispatch()
   return (
     <div 
       className='flex flex-auto w-[30%] border p-[10px] gap-2 hover:bg-main-200 rounded-md cursor-pointer'
-      // onClick={()=>{
-      //     navigate(link?.split('.')[0])
-      // }}
+      onClick={()=>{
+            dispatch(actions.setCurSongId(songData?.encodeId))
+            dispatch(actions.play(true))
+            dispatch(actions.playAlbum(true))
+        }} 
       >
       <img src={thumbnail} alt="Thumnail" className='w-[60px] h-[60px] object-cover rounded-md' />
       <div className='flex flex-col'> 
