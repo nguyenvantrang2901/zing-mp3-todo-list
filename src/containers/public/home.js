@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const {chill,artists,power,top100,weekChart} = useSelector(state=>state.app)
+  const {chill,artists,power,top100,weekChart,favourite} = useSelector(state=>state.app)
   console.log("weekChart", weekChart)
   return (
     <div className='overflow-y-auto w-full h-full'>
@@ -25,6 +25,29 @@ const Home = () => {
             </Link>
           ))}
         </div>
+        
+        {/* Nghệ sĩ yêu thích */}
+        <div className='px-[59px] mt-12 flex flex-col gap-5'>
+            <div className='flex text-sm justify-between items-center'>
+                <h3 className='font-bold text-[20px] mb-5'>{favourite?.title}</h3>
+                {/* <span className='cursor-pointer text-xs '>TẤT CẢ</span> */}
+            </div>
+            <div className='flex mx-[16px]'>
+              {favourite?.items?.filter((item,index) => index<=4).map(item=>{
+                return(
+                  <div key={item?.encodeId} className='flex-1 px-4'>
+                    <img src={item?.thumnail} alt="single" className='object-contain w-full rounded-md'/>
+                    <div className='absolute bottom-[12px] flex justify-evenly pr-8 w-full '>
+                      <img src={item?.song?.item?.thumnail} alt="singer-min" className='w-[25%] object-cover' />
+                      <img src={item?.song?.item?.thumnail} alt="singer-min" className='w-[25%] object-cover' />
+                      <img src={item?.song?.item?.thumnail} alt="singer-min" className='w-[25%] object-cover' />
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+        </div>
+
         {/* <div>Album hot</div>
         <div>Radio nổi bật</div> */}
     </div>
