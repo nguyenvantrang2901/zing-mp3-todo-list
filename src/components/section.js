@@ -1,11 +1,7 @@
-import React, { memo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { memo } from 'react'
 import SectionItem from './sectionItem'
 
 const Section = ({data}) => {
-    const navigate = useNavigate()
-    // console.log("data",data)
-    const [isHover, setIsHover] = useState(false)
    
   return (
     <div className='flex flex-col mt-12 px-[59px] gap-5'>
@@ -21,6 +17,7 @@ const Section = ({data}) => {
                         thumbnailM = {item?.thumbnailM}
                         link = {item?.link}
                         sortDescription = {item?.sortDescription}
+                        title={item?.title}
                     />
                 ))}
             </div>

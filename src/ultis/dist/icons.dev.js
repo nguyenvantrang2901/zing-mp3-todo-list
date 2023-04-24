@@ -60,7 +60,8 @@ var icons = {
   MdOutlineMonitor: _md.MdOutlineMonitor,
   VscDesktopDownload: _vsc.VscDesktopDownload,
   FiSettings: _fi.FiSettings,
-  RiVipDiamondLine: _ri.RiVipDiamondLine
+  RiVipDiamondLine: _ri.RiVipDiamondLine,
+  BsThreeDots: _bs.BsThreeDots
 };
 var _default = icons;
 exports["default"] = _default;
