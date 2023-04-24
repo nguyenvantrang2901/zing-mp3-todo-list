@@ -199,7 +199,7 @@ const Player = ({setIsShowRightSideBar}) => {
         </div>
       </div>
 
-      <div className='w-[40%] flex flex-auto flex-col border border-red-500 items-center justify-center py-2'>
+      <div className='w-[40%] flex flex-auto flex-col items-center justify-center py-2'>
         <div className='flex gap-8 justify-center items-center'>
 
           <span 
@@ -256,7 +256,7 @@ const Player = ({setIsShowRightSideBar}) => {
         </div>
       </div>
 
-      <div className='flex items-center justify-end gap-4 w-[30%] flex-auto border border-red-500'>
+      <div className='flex items-center justify-end gap-4 w-[30%] flex-auto'>
         
         <div className='flex items-center justify-center gap-4 cursor-pointer'>
           <span title="Phát MV"><MdOutlineMonitor size={20}/></span>

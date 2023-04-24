@@ -30,25 +30,24 @@ const NewRelease = () => {
     <div className='flex flex-col mt-12 px-[59px] gap-5'>
         <div className='flex items-center justify-between'>
             <h3 className='text-[20px] font-bold'>{newRelease?.title}</h3>
-            <span className='text-xs'>TẤT CẢ</span>
         </div>
         <div className='flex items-center gap-5 text-xs'>
             <button 
                 type='button' 
                 onClick={()=>setIsActive(0)}
-                className={`py-1 px-4 rounded-l-full rounded-r-full border border-gray-400 bg-transparent ${isActive === 0 && 'bg-blue-700 text-white'}`}>
+                className={`py-1 px-4 rounded-l-full rounded-r-full border border-gray-400 bg-transparent ${isActive === 0 && 'bg-blue-800 text-white'}`}>
                 TẤT CẢ
             </button>
             <button 
                 type='button' 
                 onClick={()=>setIsActive(1)}
-                className={`py-1 px-4 rounded-l-full rounded-r-full border border-gray-400 bg-transparent ${isActive === 1 && 'bg-blue-700 text-white'}`}>
+                className={`py-1 px-4 rounded-l-full rounded-r-full border border-gray-400 bg-transparent ${isActive === 1 && 'bg-blue-800 text-white'}`}>
                 VIỆT NAM
             </button>
             <button 
                 type='button' 
                 onClick={()=>setIsActive(2)}
-                className={`py-1 px-4 rounded-l-full rounded-r-full border border-gray-400 bg-transparent ${isActive === 2 && 'bg-blue-700 text-white'}`}>
+                className={`py-1 px-4 rounded-l-full rounded-r-full border border-gray-400 bg-transparent ${isActive === 2 && 'bg-blue-800 text-white'}`}>
                 QUỐC TẾ
             </button>
         </div>
