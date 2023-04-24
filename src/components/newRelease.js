@@ -52,7 +52,7 @@ const NewRelease = () => {
             </button>
         </div>
         <div className="flex flex-wrap gap-3 w-full">
-            {songs?.map(item=>(
+            {songs?.filter((item,index)=>index<=11)?.map(item=>(
                 <SongItem 
                     key={item?.encodeId}
                     title={item?.title}
