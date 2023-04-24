@@ -38,7 +38,7 @@ const Album = () => {
   return (
     
     <div className="flex w-full h-full gap-8 px-[59px]">
-        <div className="w-[30%] border border-red-400 flex flex-none flex-col items-center gap-2">
+        <div className="w-[30%] flex flex-none flex-col items-center gap-2">
           <div className="w-full relative overflow-hidden">
             <img 
                 className={`w-full object-contain ${isPlaying ? 'rounded-full animate-rotate-center' : 'rounded-md animate-rotate-center-pause'} shadow-md`}
@@ -67,7 +67,7 @@ const Album = () => {
           </div>
         </div>
         <Scrollbars  style={{ width: "100%", height: "100%" }}>
-        <div className="border border-red-400 flex-auto">
+        <div className=" flex-auto">
           <span className="text-sm">
             <span className="text-gray-700">Lời tựa </span>
             <span className="font-semibold">{playlistData?.sortDescription}</span>
