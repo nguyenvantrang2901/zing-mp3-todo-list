@@ -7,6 +7,9 @@ import {CiRepeat} from 'react-icons/ci';
 import {BiSortAlt2} from 'react-icons/bi';
 import {TbRepeatOnce} from 'react-icons/tb';
 import {GiMicrophone} from 'react-icons/gi';
+import {VscDesktopDownload} from 'react-icons/vsc';
+import {FiSettings} from 'react-icons/fi';
+import {RiVipDiamondLine} from 'react-icons/ri';
 
 const icons = {
     MdOutlineLibraryMusic,
@@ -38,7 +41,10 @@ const icons = {
     BsVolumeDownFill,
     GiMicrophone,
     MdOutlineVideoStable,
-    MdOutlineMonitor
+    MdOutlineMonitor,
+    VscDesktopDownload,
+    FiSettings,
+    RiVipDiamondLine
 
 }
 export default icons;

@@ -21,6 +21,12 @@ var _bi = require("react-icons/bi");
 
 var _gi = require("react-icons/gi");
 
+var _vsc = require("react-icons/vsc");
+
+var _fi = require("react-icons/fi");
+
+var _ri = require("react-icons/ri");
+
 var icons = {
   MdOutlineLibraryMusic: _md.MdOutlineLibraryMusic,
   TbChartDonut2: _tb.TbChartDonut2,
@@ -51,7 +57,10 @@ var icons = {
   BsVolumeDownFill: _bs.BsVolumeDownFill,
   GiMicrophone: _gi.GiMicrophone,
   MdOutlineVideoStable: _md.MdOutlineVideoStable,
-  MdOutlineMonitor: _md.MdOutlineMonitor
+  MdOutlineMonitor: _md.MdOutlineMonitor,
+  VscDesktopDownload: _vsc.VscDesktopDownload,
+  FiSettings: _fi.FiSettings,
+  RiVipDiamondLine: _ri.RiVipDiamondLine
 };
 var _default = icons;
 exports["default"] = _default;

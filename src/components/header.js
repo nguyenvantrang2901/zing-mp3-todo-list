@@ -2,8 +2,9 @@ import React from 'react'
 import icons from '../ultis/icons';
 import Search from './search';
 import { useNavigate } from 'react-router-dom';
+import logoProfile from '../assests/logo_profile.jpg';
 
-const {HiArrowNarrowLeft,HiArrowNarrowRight} = icons;
+const {HiArrowNarrowLeft,HiArrowNarrowRight, VscDesktopDownload,FiSettings,RiVipDiamondLine} = icons;
 
 const Header = () => {
   const navigate = useNavigate();
@@ -25,8 +26,20 @@ const Header = () => {
                 <Search/>
             </div>
         </div>
-        <div>
-          <button className="items-center text-gray-600 justify-center bg-blue-500 border rounded-lg"> Login </button>
+        <div className='flex gap-2 items-center cursor-pointer'>
+          <span className='border items-center rounded-full w-[190px] h-10 text-center p-2 gap-3 flex px-[20px] hover:text-gray-700'>
+            <VscDesktopDownload size={24}/>
+            <span className='text-sm font-semibold'>Tải bản Windows</span>
+          </span>
+          <span className=' flex border items-center rounded-full w-10 h-10 p-2'>
+            <RiVipDiamondLine size={24} title='Nâng cấp VIP'/>
+          </span>
+          <span className='border items-center rounded-full w-10 h-10 p-2'>
+            <FiSettings size={24} title='Cài đặt'/>
+          </span>
+          <span className='border items-center rounded-full w-10 h-10 cursor-pointer'>
+            <img src={logoProfile} alt="Images-profile" className='border items-center rounded-full w-10 h-10'/>
+          </span>
         </div>
     </div>
   )
