@@ -87,6 +87,12 @@ Object.defineProperty(exports, "NewRelease", {
     return _newRelease["default"];
   }
 });
+Object.defineProperty(exports, "SectionItem", {
+  enumerable: true,
+  get: function get() {
+    return _sectionItem["default"];
+  }
+});
 
 var _sideBarLeft = _interopRequireDefault(require("./sideBarLeft"));
 
@@ -115,5 +121,7 @@ var _loadingData = _interopRequireDefault(require("./loadingData"));
 var _songItem = _interopRequireDefault(require("./songItem"));
 
 var _newRelease = _interopRequireDefault(require("./newRelease"));
+
+var _sectionItem = _interopRequireDefault(require("./sectionItem"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

@@ -12,3 +12,4 @@ export { default as LoadingSong} from './loadingSong';
 export { default as LoadingData} from './loadingData';
 export { default as SongItem} from './songItem';
 export { default as NewRelease} from './newRelease';
+export { default as SectionItem} from './sectionItem';
