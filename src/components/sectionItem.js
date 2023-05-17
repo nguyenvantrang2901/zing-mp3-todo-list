@@ -22,7 +22,7 @@ const SectionItem = ({ encodeId, link, thumbnailM, sortDescription,title }) => {
         key={encodeId}
         className="w-1/5 text-sm flex flex-auto flex-col gap-3 cursor-pointer"
         onClick={() => {
-          navigate(link?.split(".")[0]);
+          navigate(link?.split(".")[0],{state:{playAlbum:false}});
         }}
       >
         <div   
@@ -38,6 +38,12 @@ const SectionItem = ({ encodeId, link, thumbnailM, sortDescription,title }) => {
                             size={35} 
                             className="p-1 border border-white rounded-full" 
                             title={title}
+                            onClick={(e) => {
+                                // Viết thêm stop để nhận đc sự kiện onClick
+                                // Vì đang bắt sự kiên trong sự kiện bên trên.nên nếu ko có hàm Stop sẽ chỉ nhận onClick của thằng cha
+                                e.stopPropagation()
+                                navigate(link?.split(".")[0],{state:{playAlbum:true}});
+                            }}
                         />
                     </span>
                     <span><BsThreeDots size={20} title="Khác" /></span>

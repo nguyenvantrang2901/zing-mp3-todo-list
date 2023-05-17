@@ -27,6 +27,8 @@ var _fi = require("react-icons/fi");
 
 var _ri = require("react-icons/ri");
 
+var _fa = require("react-icons/fa");
+
 var icons = {
   MdOutlineLibraryMusic: _md.MdOutlineLibraryMusic,
   TbChartDonut2: _tb.TbChartDonut2,
@@ -61,7 +63,11 @@ var icons = {
   VscDesktopDownload: _vsc.VscDesktopDownload,
   FiSettings: _fi.FiSettings,
   RiVipDiamondLine: _ri.RiVipDiamondLine,
-  BsThreeDots: _bs.BsThreeDots
+  BsThreeDots: _bs.BsThreeDots,
+  FaRegComment: _fa.FaRegComment,
+  TbShare3: _tb.TbShare3,
+  MdContentCopy: _md.MdContentCopy,
+  BiCommentAdd: _bi.BiCommentAdd
 };
 var _default = icons;
 exports["default"] = _default;
