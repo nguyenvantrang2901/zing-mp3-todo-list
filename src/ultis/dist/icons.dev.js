@@ -67,7 +67,8 @@ var icons = {
   FaRegComment: _fa.FaRegComment,
   TbShare3: _tb.TbShare3,
   MdContentCopy: _md.MdContentCopy,
-  BiCommentAdd: _bi.BiCommentAdd
+  BiCommentAdd: _bi.BiCommentAdd,
+  FiClock: _fi.FiClock
 };
 var _default = icons;
 exports["default"] = _default;
