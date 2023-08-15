@@ -1,0 +1,3 @@
+- Clone project in github
+- download lib : npm i
+- start: npm start
