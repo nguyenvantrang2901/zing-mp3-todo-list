@@ -25,7 +25,7 @@ const appReducer = (state = initState, action) => {
                 newRelease: action.homeData?.find(item=>item.sectionType === "new-release") || {},
                 top100: action.homeData?.find(item=>item.sectionId === "h100") || {},
                 weekChart: action.homeData?.find(item=>item.sectionType === "weekChart")?.items || [],
-                favourite: action.homeData?.find(item=>item.sectionType === "hMix") || {},
+                favourite: action.homeData?.find(item=>item.sectionId === "hMix") || {},
                 
             }
         case actionTypes.LOADING_DATA:

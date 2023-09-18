@@ -32,15 +32,15 @@ const Home = () => {
                 <h3 className='font-bold text-[20px] mb-5'>{favourite?.title}</h3>
                 {/* <span className='cursor-pointer text-xs '>TẤT CẢ</span> */}
             </div>
-            <div className='flex mx-[16px]'>
-              {favourite?.items?.filter((item,index) => index<=4).map(item=>{
+            <div className='flex mx-[-16px]'>
+              {favourite?.items?.filter((item,index) => index<=4).map(singer=>{
                 return(
-                  <div key={item?.encodeId} className='flex-1 px-4'>
-                    <img src={item?.thumnail} alt="single" className='object-contain w-full rounded-md'/>
+                  <div key={singer?.encodeId} className='flex-1 px-4'>
+                    <img src={singer?.thumnail} alt="single" className='object-contain w-full rounded-md'/>
                     <div className='absolute bottom-[12px] flex justify-evenly pr-8 w-full '>
-                      <img src={item?.song?.item?.thumnail} alt="singer-min" className='w-[25%] object-cover' />
-                      <img src={item?.song?.item?.thumnail} alt="singer-min" className='w-[25%] object-cover' />
-                      <img src={item?.song?.item?.thumnail} alt="singer-min" className='w-[25%] object-cover' />
+                      <img src={singer?.song?.singer[0]?.thumnail} alt="singer-min" className='w-[25%] object-cover rounded-md' />
+                      <img src={singer?.song?.singer[1]?.thumnail} alt="singer-min" className='w-[25%] object-cover rounded-md' />
+                      <img src={singer?.song?.singer[2]?.thumnail} alt="singer-min" className='w-[25%] object-cover rounded-md' />
                     </div>
                   </div>
                 )
