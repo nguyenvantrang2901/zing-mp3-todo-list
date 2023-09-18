@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal } from "antd"
 
-const Modal = ({props}) => {
+const ModalItem = ({props}) => {
     const {title} = props
   return (
     <>
@@ -17,4 +17,4 @@ const Modal = ({props}) => {
   )
 }
 
-export default Modal
+export default ModalItem

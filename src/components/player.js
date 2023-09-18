@@ -137,11 +137,11 @@ const Player = ({setIsShowRightSideBar}) => {
     if (songs){
       let currentSongIndex
       songs?.forEach((item, index)=>{
-        if(item.encodeId === curSongId) 
+        if(item?.encodeId === curSongId) 
           currentSongIndex = index
       })
       // console.log(currentSongIndex);
-      dispatch(actions.setCurSongId(songs[currentSongIndex + 1].encodeId))
+      dispatch(actions.setCurSongId(songs[currentSongIndex + 1]?.encodeId))
       dispatch(actions.play(true))
     }
    }
@@ -151,10 +151,10 @@ const Player = ({setIsShowRightSideBar}) => {
     if(songs) {
       let currentSongsIndex
       songs?.forEach((item,index)=>{
-        if(item.encodeId === curSongId)
+        if(item?.encodeId === curSongId)
           currentSongsIndex = index
       })
-      dispatch(actions.setCurSongId(songs[currentSongsIndex - 1].encodeId))
+      dispatch(actions.setCurSongId(songs[currentSongsIndex - 1]?.encodeId))
       dispatch(actions.play(true))
     } 
   }
