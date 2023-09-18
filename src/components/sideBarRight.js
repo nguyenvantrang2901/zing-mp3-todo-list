@@ -11,7 +11,7 @@ const { FiClock, BsThreeDots } = icons;
 const SideBarRight = () => {
   const { isPlaying, songs } = useSelector((state) => state.music);
   const [playListData, setPlayListData] = useState({});
-  console.log("playListDataplayListData", playListData);
+  // console.log("playListDataplayListData", playListData);
   const { playListId } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {

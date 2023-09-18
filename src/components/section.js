@@ -13,6 +13,7 @@ const Section = ({data}) => {
             <div className='items-start flex mb-5 gap-7 justify-between'>
                 {data?.items?.slice(0,5)?.map(item=>(
                     <SectionItem
+                        key={item?.encodeId}
                         encodeId = {item?.encodeId}
                         thumbnailM = {item?.thumbnailM}
                         link = {item?.link}
