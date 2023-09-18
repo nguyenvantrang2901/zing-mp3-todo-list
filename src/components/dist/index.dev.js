@@ -93,6 +93,12 @@ Object.defineProperty(exports, "SectionItem", {
     return _sectionItem["default"];
   }
 });
+Object.defineProperty(exports, "ChartSection", {
+  enumerable: true,
+  get: function get() {
+    return _chartSection["default"];
+  }
+});
 
 var _sideBarLeft = _interopRequireDefault(require("./sideBarLeft"));
 
@@ -123,5 +129,7 @@ var _songItem = _interopRequireDefault(require("./songItem"));
 var _newRelease = _interopRequireDefault(require("./newRelease"));
 
 var _sectionItem = _interopRequireDefault(require("./sectionItem"));
+
+var _chartSection = _interopRequireDefault(require("./chartSection"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
