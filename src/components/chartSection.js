@@ -4,12 +4,13 @@ import {Line} from "react-chartjs-2"
 import {Chart} from "chart.js/auto"
 import { useSelector } from 'react-redux'
 import icon from "../ultis/icons"
+import RateSongItem from "./rateSongItem"
 
 const ChartSection = () => {
     const {BsPlayFill} = icon
     const [data, setData] = useState(null)
     const {chart, rank} = useSelector(state=>state.app)
-    // console.log({chart, rank})
+    console.log("rank" ,{ rank})
     const options = {
         responsive : true,
         pointRadius : 6,
@@ -53,10 +54,23 @@ const ChartSection = () => {
         <img src={bgChart2} alt="background Chart" className='w-full max-h-[400px]'/>
         <div className='absolute top-0 bottom-0 z-20 right-[59px] left-[59px] bg-[rgba(77,34,104,0.9)]'></div>
         <div className="absolute top-0 bottom-0 z-20 right-[59px] left-[59px] p-5">
-            <h3 className='text-2xl text-white font-bold'>#zingchart</h3>
-            <h3><BsPlayFill/></h3>
-            <div className='flex gap-4 h-full'> 
-                <div className='flex-4 border border-white'>rank</div>
+            <div className='flex'>
+                <h3 className='text-2xl text-white font-bold'>#zingchart</h3>
+                <h3><BsPlayFill/></h3>
+            </div>
+            <div className='flex gap-4 h-full p-[10px]'> 
+                <div className='flex-4 h-[400px] py-[10px]'>
+                    {rank?.filter((item, index)=>index<3)?.map(item=>{
+                        return (
+                            <RateSongItem
+                                key= {item?.encodeId}
+                                title= {item?.title}
+                                artists = {item?.artists}
+                                thumbnail = {item?.thumbnail}
+                            />
+                        )
+                    })}
+                </div>
                 <div className='flex-6 max-h-[400px]'>
                     {data && <Line data={data} options = {options}/>}
                 </div>
