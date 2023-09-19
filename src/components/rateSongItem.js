@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 
 //Truyển props để lấy dữ liệu từ file newRelase xuống.
 //tạo componets SongItem để sử dụng đc nhiều lần
-const RateSongItem = ({thumbnail, artists, title, releaseDate, songData, order, percent}) => {
+const RateSongItem = ({thumbnail, artists, title, songData, order, percent}) => {
   const dispatch = useDispatch()
   return (
     <div 
@@ -18,7 +18,11 @@ const RateSongItem = ({thumbnail, artists, title, releaseDate, songData, order, 
         }} 
       >
       <div className="flex gap-4">
-        <span className="text-bold text-white text-[32px]">{order}</span>
+        {order && <span 
+          className={`${order===1? 'text-shadow-no1':order===2?'text-shadow-no2':'text-shadow-no3'} text-[rgba(77,34,104,0.9)] text-bold text-white text-[32px]`}
+        >
+          {order}
+        </span>}
         <img src={thumbnail} alt="Thumbnail" className='w-[60px] h-[60px] object-cover rounded-md' />
         <div className='flex flex-col'>
           <span className='font-semibold text-white text-sm'>{title?.length > 20 ? `${title.slice(0,20)}...` : title}</span>
@@ -31,7 +35,8 @@ const RateSongItem = ({thumbnail, artists, title, releaseDate, songData, order, 
           })}
         </div>
       </div>
-      <span className="text-bold text-white text-[16px]">{percent}%</span>
+      
+      {percent && <span className="text-bold text-white text-[16px]">{percent}%</span>}
     </div>
   )
 }
