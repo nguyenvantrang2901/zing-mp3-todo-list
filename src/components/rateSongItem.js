@@ -3,6 +3,7 @@ import moment from 'moment'
 import 'moment/locale/vi' //Chuyển về tiếng việt(trường releaseDate)
 import * as actions from '../store/actions'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 //Truyển props để lấy dữ liệu từ file newRelase xuống.
 //tạo componets SongItem để sử dụng đc nhiều lần
@@ -29,7 +30,7 @@ const RateSongItem = ({thumbnail, artists, title, songData, order, percent}) => 
           {artists?.map(item=>{
               return (
                   <>
-                      <span className='text-xs text-gray-300 cursor-pointer'>{item?.name}</span>
+                      <Link className='text-xs text-gray-300 cursor-pointer'>{item?.name}</Link>
                   </>
               )
           })}

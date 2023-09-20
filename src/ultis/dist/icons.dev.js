@@ -47,6 +47,7 @@ var icons = {
   MdSkipPrevious: _md.MdSkipPrevious,
   BsShuffle: _bs.BsShuffle,
   BsPlayFill: _bs.BsPlayFill,
+  BsFillPlayFill: _bs.BsFillPlayFill,
   BsPauseFill: _bs.BsPauseFill,
   HiPause: _hi.HiPause,
   BsMusicNoteBeamed: _bs.BsMusicNoteBeamed,

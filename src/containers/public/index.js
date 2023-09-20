@@ -4,3 +4,4 @@ export {default as Public} from "./public";
 export {default as Personal} from "./personal";
 export {default as Album} from "./album";
 export {default as WeekRank} from "./weekRank";
+export {default as ZingChart} from "./zingChart";

@@ -39,6 +39,12 @@ Object.defineProperty(exports, "WeekRank", {
     return _weekRank["default"];
   }
 });
+Object.defineProperty(exports, "ZingChart", {
+  enumerable: true,
+  get: function get() {
+    return _zingChart["default"];
+  }
+});
 
 var _home = _interopRequireDefault(require("./home"));
 
@@ -51,5 +57,7 @@ var _personal = _interopRequireDefault(require("./personal"));
 var _album = _interopRequireDefault(require("./album"));
 
 var _weekRank = _interopRequireDefault(require("./weekRank"));
+
+var _zingChart = _interopRequireDefault(require("./zingChart"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
