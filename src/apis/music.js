@@ -37,3 +37,17 @@ export const apiGetDetailPlaylist = (playlistId)=> new Promise( async (resolve, 
         reject(error)
     }
 })
+
+//api search bài hát
+export const apiSearch = (keyword)=> new Promise( async (resolve, reject) =>{
+    try {
+        const res = await axios({
+            url:"search",
+            method:"get",
+            params: { keyword: keyword}
+        })
+        resolve(res)
+    } catch (error) {
+        reject(error)
+    }
+})

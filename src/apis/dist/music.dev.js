@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.apiGetDetailPlaylist = exports.apiGetInfoSong = exports.apiGetSong = void 0;
+exports.apiSearch = exports.apiGetDetailPlaylist = exports.apiGetInfoSong = exports.apiGetSong = void 0;
 
 var _axios = _interopRequireDefault(require("../axios"));
 
@@ -122,6 +122,46 @@ var apiGetDetailPlaylist = function apiGetDetailPlaylist(playlistId) {
       }
     }, null, null, [[0, 7]]);
   });
-};
+}; //api search bài hát
+
 
 exports.apiGetDetailPlaylist = apiGetDetailPlaylist;
+
+var apiSearch = function apiSearch(keyword) {
+  return new Promise(function _callee4(resolve, reject) {
+    var res;
+    return regeneratorRuntime.async(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            _context4.next = 3;
+            return regeneratorRuntime.awrap((0, _axios["default"])({
+              url: "search",
+              method: "get",
+              params: {
+                keyword: keyword
+              }
+            }));
+
+          case 3:
+            res = _context4.sent;
+            resolve(res);
+            _context4.next = 10;
+            break;
+
+          case 7:
+            _context4.prev = 7;
+            _context4.t0 = _context4["catch"](0);
+            reject(_context4.t0);
+
+          case 10:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, null, null, [[0, 7]]);
+  });
+};
+
+exports.apiSearch = apiSearch;

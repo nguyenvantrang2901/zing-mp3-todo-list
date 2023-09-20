@@ -29,9 +29,7 @@ const RateSongItem = ({thumbnail, artists, title, songData, order, percent}) => 
           <span className='font-semibold text-white text-sm'>{title?.length > 20 ? `${title.slice(0,20)}...` : title}</span>
           {artists?.map(item=>{
               return (
-                  <>
                       <Link className='text-xs text-gray-300 cursor-pointer'>{item?.name}</Link>
-                  </>
               )
           })}
         </div>

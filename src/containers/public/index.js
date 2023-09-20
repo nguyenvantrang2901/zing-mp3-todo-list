@@ -5,3 +5,6 @@ export {default as Personal} from "./personal";
 export {default as Album} from "./album";
 export {default as WeekRank} from "./weekRank";
 export {default as ZingChart} from "./zingChart";
+export {default as Search} from "./search";
+export {default as SearchSongs} from "./searchSongs";
+export {default as SearchAll} from "./searchAll";
